@@ -1,0 +1,7 @@
+# Root .gitignore
+demo/target/
+demo-frontend/node_modules/
+demo-frontend/dist/
+.DS_Store
+Thumbs.db
+*.log

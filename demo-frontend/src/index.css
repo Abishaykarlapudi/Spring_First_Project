@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   VCUBE DIRECTORY — DESIGN TOKEN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;       /* Base element radius */
+  --radius-lg: 12px;      /* Card & panel radius */
+  --radius-xl: 16px;      /* Modal & drawer radius */
+  --radius-2xl: 24px;
+  --radius-full: 9999px;  /* Badge & pill radius */
+
+  /* Transitions & Animation Curves */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Primary Color Spectrum (Deep Violet to Indigo) */
+  --primary-50: #f5f3ff;
+  --primary-100: #ede9fe;
+  --primary-200: #ddd6fe;
+  --primary-300: #c4b5fd;
+  --primary-400: #a78bfa;
+  --primary-500: #8b5cf6;
+  --primary-600: #7c3aed;  /* Brand Hero Primary */
+  --primary-700: #6d28d9;
+  --primary-800: #5b21b6;
+  --primary-900: #4c1d95;
+  --primary-950: #2e1065;
+  --primary-indigo: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  --primary-gradient-subtle: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(79, 70, 229, 0.04) 100%);
+  --primary-glow: 0 0 24px rgba(124, 58, 237, 0.35);
+
+  /* Success Palette (Emerald) */
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-400: #34d399;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;
+  --success-surface: #f0fdf4;
+  --success-border: #bbf7d0;
+  --success-text: #15803d;
+
+  /* Danger Palette (Rose) */
+  --danger-50: #fff1f2;
+  --danger-100: #ffe4e6;
+  --danger-200: #fecdd3;
+  --danger-400: #fb7185;
+  --danger-500: #f43f5e;
+  --danger-600: #e11d48;
+  --danger-700: #be123c;
+  --danger-surface: #fff1f2;
+  --danger-border: #fecdd3;
+  --danger-text: #be123c;
+
+  /* Warning Palette (Amber) */
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+  --warning-700: #b45309;
+  --warning-surface: #fffbeb;
+  --warning-border: #fde68a;
+  --warning-text: #b45309;
+
+  /* Light Theme Surfaces & Neutrals */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-hover: #eef2f6;
+  --bg-active: #e2e8f0;
+
+  /* Light Theme Typography Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Light Theme Borders */
+  --border-default: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-strong: #cbd5e1;
+  --border-focus: #7c3aed;
+
+  /* Tinted Shadows (Violet/Slate Blend) */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(124, 58, 237, 0.04);
+  --shadow-md: 0 4px 8px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(124, 58, 237, 0.06);
+  --shadow-lg: 0 10px 18px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(124, 58, 237, 0.08);
+  --shadow-xl: 0 20px 28px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(124, 58, 237, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.18), 0 12px 24px -8px rgba(124, 58, 237, 0.14);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   DARK THEME OVERRIDES
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Dark Theme Surfaces & Neutrals */
+  --bg-page: #0b0f19;
+  --bg-surface: #131b2e;
+  --bg-elevated: #1e293b;
+  --bg-subtle: #172138;
+  --bg-hover: #22304c;
+  --bg-active: #2d3f63;
+
+  /* Dark Theme Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0b0f19;
+
+  /* Dark Theme Borders */
+  --border-default: #1e293b;
+  --border-subtle: #162035;
+  --border-strong: #334155;
+  --border-focus: #a78bfa;
+
+  /* Status Colors Adjusted for Dark Backgrounds */
+  --success-surface: rgba(16, 185, 129, 0.12);
+  --success-border: rgba(16, 185, 129, 0.28);
+  --success-text: #34d399;
+
+  --danger-surface: rgba(244, 63, 94, 0.12);
+  --danger-border: rgba(244, 63, 94, 0.28);
+  --danger-text: #fb7185;
+
+  --warning-surface: rgba(245, 158, 11, 0.12);
+  --warning-border: rgba(245, 158, 11, 0.28);
+  --warning-text: #fbbf24;
+
+  /* Primary Accent Dark Adjustments */
+  --primary-50: #1b1733;
+  --primary-100: #291f4f;
+  --primary-glow: 0 0 32px rgba(167, 139, 250, 0.3);
+  --primary-gradient-subtle: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(79, 70, 229, 0.08) 100%);
+
+  /* Dark Theme Shadows with Violet Ambient Tint */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(124, 58, 237, 0.08);
+  --shadow-md: 0 4px 10px -1px rgba(0, 0, 0, 0.55), 0 2px 4px -2px rgba(124, 58, 237, 0.1);
+  --shadow-lg: 0 10px 22px -3px rgba(0, 0, 0, 0.65), 0 4px 8px -4px rgba(124, 58, 237, 0.15);
+  --shadow-xl: 0 20px 32px -5px rgba(0, 0, 0, 0.75), 0 8px 16px -6px rgba(124, 58, 237, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 12px 24px -8px rgba(124, 58, 237, 0.25);
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   BASE RESET & ELEMENT NORMALIZATION
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Interactive Elements */
+a {
+  color: var(--primary-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-700);
+}
+
+[data-theme="dark"] a {
+  color: var(--primary-400);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--primary-300);
+}
+
+button {
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Form Controls */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 0.875rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  outline: none;
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Code & Monospace Elements */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  color: var(--primary-600);
+}
+
+[data-theme="dark"] code {
+  color: var(--primary-400);
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-secondary);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Selection & Scrollbars */
+::selection {
+  background-color: rgba(124, 58, 237, 0.2);
+  color: var(--primary-800);
+}
+
+[data-theme="dark"] ::selection {
+  background-color: rgba(167, 139, 250, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
