@@ -1,7 +1,10 @@
 import axios from "axios";
 
-// Base URL dynamically configured from environment variable or defaults to local port 5000
-const BASE_HOST = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+// In production, when React is served directly by Spring Boot, use relative paths; otherwise use VITE_API_BASE_URL or localhost
+const BASE_HOST = import.meta.env.VITE_API_BASE_URL !== undefined 
+  ? import.meta.env.VITE_API_BASE_URL 
+  : (import.meta.env.PROD ? "" : "http://localhost:5000");
+
 const API_BASE_URL = `${BASE_HOST}/dmo`;
 const AUTH_BASE_URL = `${BASE_HOST}/auth`;
 

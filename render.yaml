@@ -1,10 +1,10 @@
 services:
-  # 1. Spring Boot Backend Web Service
+  # Unified Fullstack Service (Spring Boot + React UI embedded)
   - type: web
-    name: vcube-directory-api
+    name: vcube-directory-app
     env: docker
-    dockerfilePath: ./demo/Dockerfile
-    dockerContext: ./demo
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     plan: free
     healthCheckPath: /dmo/get
     envVars:
@@ -16,20 +16,3 @@ services:
         sync: false
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
-
-  # 2. React Vite Frontend Static Site
-  - type: web
-    name: vcube-directory-app
-    env: static
-    buildCommand: cd demo-frontend && npm install && npm run build
-    staticPublishPath: ./demo-frontend/dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: vcube-directory-api
-          property: host
