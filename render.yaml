@@ -23,7 +23,6 @@ services:
     env: static
     buildCommand: cd demo-frontend && npm install && npm run build
     staticPublishPath: ./demo-frontend/dist
-    plan: free
     routes:
       - type: rewrite
         source: /*
